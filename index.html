@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red & Black Website</title>
+    <link rel="stylesheet" href="pagescss/style.css"> <!-- External CSS link -->
+    <style>
+        /* Full screen blur overlay */
+        .blur-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(7, 7, 7, 0.87);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(8px);
+            z-index: 999;
+        }
+
+        /* Button style */
+        .inactive-button {
+            padding: 20px 40px;
+            background-color: rgba(110, 24, 24, 0.61);
+            color: rgba(0, 0, 0, 0.774);
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Hover effect for button */
+        .inactive-button:hover {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Video -->
+    <video id="background-video" autoplay loop muted>
+        <source src="back/back1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Navigation bar above the ASCII Art -->
+    <nav>
+        <a href="About.html" id="about-link">About</a>
+        <a href="Services.html">Services</a>
+        <a href="Contact.html">Contact</a>
+    </nav>
+
+    <!-- Main Content Section -->
+    <div class="main-section" id="home">
+        <!-- ASCII Art positioned above the YouTube videos -->
+        <div class="ascii-art-container">
+            <pre class="ascii-art">
+     ___ _   _    _    ____ _____ _____     _______ 
+    |_ _| \ | |  / \  / ___|_   _|_ _\ \   / | ____|
+     | ||  \| | / _ \| |     | |  | | \ \ / /|  _|  
+     | || |\  |/ ___ | |___  | |  | |  \ V / | |___ 
+    |___|_| \_/_/   \_\____| |_| |___|  \_/  |_____|
+</pre>
+        </div>
+
+        <h2>Check Out These Videos</h2>
+
+        <!-- Video Section: Two YouTube Videos Side by Side -->
+        <div class="video-container">
+            <div class="video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/axfFUfKP3_w?si=d5a6sga_6N4AI_Cx" 
+                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/pE1B_lA8BRA?si=8s59-8Kgn-iRqH5T" 
+                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Music player that starts automatically, loops, and has volume set to 50% -->
+    <audio id="music-player" preload="auto" autoplay loop>
+        <source src="music/love1.mp4" type="audio/mp4">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Blur overlay with button -->
+    <div class="blur-overlay" id="blur-overlay">
+        <button class="inactive-button" id="play-button">Inactive</button>
+    </div>
+
+    <script>
+        // Set the volume to 50%
+        var audio = document.getElementById('music-player');
+        audio.volume = 0.5; // 50% volume
+
+        // Save the music state in localStorage to persist across page transitions
+        localStorage.setItem('musicPlaying', 'false');
+
+        // Button event listener to remove the blur and start playing the music
+        document.getElementById('play-button').addEventListener('click', function() {
+            // Remove the blur overlay and button
+            document.getElementById('blur-overlay').style.display = 'none';
+
+            // Start playing the music
+            audio.play();
+
+            // Update the localStorage state
+            localStorage.setItem('musicPlaying', 'true');
+        });
+
+        // JavaScript to play the music when the About link is clicked
+        document.getElementById('about-link').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            localStorage.setItem('musicPlaying', 'true'); // Set music to play on the About page
+            window.location.href = "about.html"; // Redirect to About page
+        });
+    </script>
+
+</body>
+</html>
+
