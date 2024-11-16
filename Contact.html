@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Red & Black Website</title>
+    <link rel="stylesheet" href="pagescss/styless.css"> <!-- External CSS link -->
+</head>
+<body>
+
+    <!-- Background Video -->
+    <video id="background-video" autoplay loop muted>
+        <source src="back/back4.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Navigation bar above the ASCII Art -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="About.html" id="about-link">About</a>
+        <a href="Services.html">Services</a>
+    </nav>
+
+    <!-- Main Content Section -->
+    <div class="main-section" id="contact">
+        <!-- ASCII Art positioned above the contact information -->
+        <div class="ascii-art-container">
+            <pre class="ascii-art">
+     ___ _   _    _    ____ _____ _____     _______ 
+    |_ _| \ | |  / \  / ___|_   _|_ _\ \   / | ____|
+     | ||  \| | / _ \| |     | |  | | \ \ / /|  _|  
+     | || |\  |/ ___ | |___  | |  | |  \ V / | |___ 
+    |___|_| \_/_/   \_\____| |_| |___|  \_/  |_____|
+            </pre>
+</header>
+
+        <h2>Contact Information</h2>
+
+        <ul>
+            <li><strong>TELE:</strong> <a href="https://t.me/inactivee0" target="_blank">Inactive</a></li>
+            <li><strong>Discord:</strong> <a href="https://discord.gg/coffintools" target="_blank">Coffin tools</a></li>
+            <li><strong>Phone:</strong> +1 559 522-2064</li>
+            <li><strong>Email:</strong> <a href="inactives@viv2.com">inactives@viv2.com</a></li>
+        </ul>
+
+        <h3>Feel free to reach out via any of the following channels!</h3>
+    </div>
+
+    <!-- Music player that starts automatically, loops, and has volume set to 50% -->
+    <audio id="music-player" preload="auto" autoplay loop>
+        <source src="music/roof1.mp4" type="audio/mp4">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Set the volume to 50%
+        var audio = document.getElementById('music-player');
+        audio.volume = 0.5; // 50% volume
+
+        // Save the music state in localStorage to persist across page transitions
+        localStorage.setItem('musicPlaying', 'true');
+
+        // JavaScript to play the music when the About link is clicked
+        document.getElementById('about-link').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            localStorage.setItem('musicPlaying', 'true'); // Set music to play on the About page
+            window.location.href = "about.html"; // Redirect to About page
+        });
+    </script>
+
+</body>
+</html>

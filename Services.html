@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Light Grey Theme with Video Background</title>
+    <link rel="stylesheet" href="pagescss/stylesss.css"> <!-- External CSS link -->
+    
+    <!-- Custom Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Oswald:wght@300&display=swap" rel="stylesheet"> <!-- Example Font -->
+</head>
+<body>
+    <!-- Background Video -->
+    <video id="background-video" autoplay loop muted>
+        <source src="back/back3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Navigation Links Above ASCII Art -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html" id="about-link">About</a>
+        <a href="Contact.html">Contact</a>
+    </nav>
+
+    <!-- ASCII Art Section -->
+    <header>
+        <pre class="ascii-art">
+                                     ___ _   _    _    ____ _____ _____     _______ 
+                                    |_ _| \ | |  / \  / ___|_   _|_ _\ \   / | ____|
+                                     | ||  \| | / _ \| |     | |  | | \ \ / /|  _|  
+                                     | || |\  |/ ___ | |___  | |  | |  \ V / | |___ 
+                                    |___|_| \_/_/   \_\____| |_| |___|  \_/  |_____|
+        </pre>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="main-section">
+        <h2>My Services</h2>
+        <ul>
+            <li><strong>Hacking</strong> - If you want to purchase my services for hacking pls messages me at tele and ill help you there.</li>
+            <li><strong><a href="https://discord.gg/coffintools" target="_blank" id="coffin-tools">Coffin tools</a></strong> - A collection of advanced OSINT tools for hackers and tech enthusiasts to streamline operations and enhance efficiency in the digital world. Explore our comprehensive tools for various cybersecurity tasks.</li>
+        </ul>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; <a href="https://t.me/+sTkkZYN_tloyM2Q5" target="_blank">TELE</a> | 
+            <a href="https://discord.gg/3speRAdzam" target="_blank">Discord</a> | 
+            <a href="https://t.me/inactivee0" target="_blank">UserTele</a> | 
+            <a href="https://discordapp.com/channels/@me/1304029326261354579/1307141409895350344" target="_blank">Insta</a>
+         </p>
+    </footer>
+
+    <!-- Music player that starts automatically, loops, and has volume set to 50% -->
+    <audio id="music-player" preload="auto" autoplay loop>
+        <source src="music/no.mp4" type="audio/mp4">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Set the volume to 50%
+        var audio = document.getElementById('music-player');
+        audio.volume = 0.5; // 50% volume
+
+        // Check if music should continue playing from previous page
+        if (localStorage.getItem('musicPlaying') === 'true') {
+            audio.play(); // Play the music
+        }
+
+        // Allow music to continue across pages
+        localStorage.setItem('musicPlaying', 'true');
+    </script>
+</body>
+</html>
+
